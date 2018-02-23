@@ -1,103 +1,138 @@
+const img1 = require('../../img/pic1.png');
+const img2 = require('../../img/pic2.png');
+const img3 = require('../../img/pic3.png');
+const img4 = require('../../img/pic4.png');
+const img5 = require('../../img/pic5.png');
+const img6 = require('../../img/pic6.png');
+const img7 = require('../../img/pic7.png');
+const img8 = require('../../img/pic8.png');
+const img9 = require('../../img/pic9.png');
+const img10 = require('../../img/pic10.png');
+const img11 = require('../../img/pic11.png');
+const img12 = require('../../img/pic12.png');
+
 module.exports = [
  cards =
     {   
-        name: 'shroom',
-        src: '../img/pic1.png',
+        name: 'andro',
+        src: img1,
         id:'1'
     },
     {
         name: 'cod',
-        src: '../img/pic2.png',
+        src: img2,
         id:'2'
     },
     {
         name: 'destruct',
-        src: '../img/pic3.png',
+        src:  img3,
         id:'3'
     },
     {
-        name: 'shroom',
-        src: '../img/pic4.png',
+        name: 'json',
+        src: img4,
         id:'4'
     },
     {
-        name: 'json',
-        src: '../img/pic5.png',
+        name: 'mario',
+        src:  img5,
         id:'5'
     },
     {
-        name: 'mario',
-        src: '../img/pic6.png',
+        name: 'ninja',
+        src:  img6,
         id:'6'
     },
     {
-        name: 'ninja',
-        src: '../img/pic7.png',
+        name: 'pig',
+        src:  img7,
         id:'7'
     },
     {
-        name: 'pig',
-        src: '../img/pic8.png',
+        name: 'pika',
+        src:  img8,
         id:'8'
     },
     {
-        name: 'pika',
-        src: '../img/pic9.png',
+        name: 'greenshroom',
+        src:  img9,
         id:'9'
     },
     {
         name: 'venddetta',
-        src: '../img/pic10.png',
+        src:  img10,
         id:'10'
     },
+    {
+        name: 'blueshroom',
+        src:  img11,
+        id:'11'
+    },
+    {
+        name: 'robo',
+        src:  img12,
+        id:'12'
+    },
+    
     {   
-        name: 'shroom',
-        src: '../img/pic1.png',
-        id:'1'
+        name: 'andro',
+        src: img1,
+        id:'13'
     },
     {
         name: 'cod',
-        src: '../img/pic2.png',
-        id:'2'
+        src: img2,
+        id:'14'
     },
     {
         name: 'destruct',
-        src: '../img/pic3.png',
-        id:'3'
-    },
-    {
-        name: 'shroom',
-        src: '../img/pic4.png',
-        id:'4'
+        src:  img3,
+        id:'15'
     },
     {
         name: 'json',
-        src: '../img/pic5.png',
-        id:'5'
+        src: img4,
+        id:'16'
     },
     {
         name: 'mario',
-        src: '../img/pic6.png',
-        id:'6'
+        src:  img5,
+        id:'17'
     },
     {
         name: 'ninja',
-        src: '../img/pic7.png',
-        id:'7'
+        src:  img6,
+        id:'18'
     },
     {
         name: 'pig',
-        src: '../img/pic8.png',
-        id:'8'
+        src:  img7,
+        id:'19'
     },
     {
         name: 'pika',
-        src: '../img/pic9.png',
-        id:'9'
+        src:  img8,
+        id:'20'
+    },
+    {
+        name: 'greenshroom',
+        src:  img9,
+        id:'21'
     },
     {
         name: 'venddetta',
-        src: '../img/pic10.png',
-        id:'10'
+        src:  img10,
+        id:'22'
     },
+    {
+        name: 'blueshroom',
+        src:  img11,
+        id:'23'
+    },
+    {
+        name: 'robo',
+        src:  img12,
+        id:'24'
+    },
+ 
 ];

@@ -1,7 +1,6 @@
 * {
     box-sizing: border-box;
 }
-
 body {
     background-color: red;
     width: 1200px;  
@@ -12,12 +11,12 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     border: 1px solid black;
-    width:800px;
+    width:900px;
     height: 900px;
 }
 .board > div {
-    border: 1px solid black;
-    
+    /* border: 1px solid black; */
+    background-color: white;
     width: 140px;
     height: 200px;
     padding: 10px, 10px;
@@ -25,4 +24,15 @@ body {
 img{
     width: 100%;
     height: 100%;
+    /* display:none; */
 }
+.rotate {
+    display: block;
+    transform: rotateY(360deg);
+}
+/* isActive {
+    display: block;
+    transform: rotateY(360deg);
+} */
+
+

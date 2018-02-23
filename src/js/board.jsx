@@ -1,11 +1,27 @@
 
+  cardCheck = () => {
+        if()
+        
+        matched =() => {
+            checkedCards[0].classList.add("match");
+            checkedCards[1].classList.add("match");
+            checkedCards[0].classList.remove("show", "open");
+            checkedCards[1].classList.remove("show", "open");
+            checkedCards = [];
+        }
+    }
 
-const canvasElem = document.getElementById('canvas');
-const ctx = canvasElem.getContext('2d');
 
-        ctx.fillStyle = 'rgb(200, 0, 0)';
-        ctx.fillRect(10, 10, 50, 50);
-    
-        ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';
-        ctx.fillRect(30, 30, 50, 50);
-    
+    function cardOpen() {
+        checkedCards.push(e.currentTarget);
+        var len = checkedCards.length;
+        if(len === 2){
+            moveCounter();
+            if(checkedCards[0].firstElementChild.alt === checkedCards[1].firstElementChild.alt){
+                    console.log("shieet");
+                matched();
+            } else {
+                unmatched();
+            }
+        }
+    };
