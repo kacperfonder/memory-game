@@ -57,7 +57,7 @@ class GameBoard extends React.Component {
 
         }
     };
-   
+//    kkk
     
     render() {
     this.state.getCards = cards.map((e,i) =>{
