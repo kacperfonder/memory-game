@@ -4,34 +4,27 @@ import cards from "./cards.js";
 require('../../dist/css/main.css');
 
 
-class GameBoard extends React.Component {
+class GameCard extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-    
             getCards: [],
             checkedCards:[],
             cardOneFlipped: false,
             cardTwoFlipped: false,
             movesDone: 0,
-            class: ""
-           
+            class: ""      
         }
     }
     matched = () => {
-      
-        this.state.checkedCards = [];
-        
+    
+        this.state.checkedCards = []; 
     }
     unmatched = () => {
      
         this.state.checkedCards = [];
-
     }
    
-
-
-
     handleClick = (e) => {
         this.setState({
             class: this.state.class == 'rotate' ? '' : 'rotate'
@@ -54,48 +47,85 @@ class GameBoard extends React.Component {
                 this.unmatched();
                
             }
-
         }
     };
-//    kkk
-    
+
     render() {
-    this.state.getCards = cards.map((e,i) =>{
-        return  <div  onClick={this.handleClick} key={i}>  <img className={this.state.class}  src={e.src} alt={e.name} id={e.id}/>   </div>
-    })
+    // this.state.getCards = cards.map((e,i) =>{
+    //     return  <div  onClick={this.handleClick} key={i}>  <img className={this.state.class}  src={e.src} alt={e.name} id={e.id}/>   </div>
+    // })
 
-    function shuffle (array) {
-        let m = array.length, t, i;
-        while (m) {
-    
-            i = Math.floor(Math.random() * m--);
-            t = array[m];
-            array[m] = array[i];
-            array[i] = t;
-        }
-        return array;
-    }
-   
-
+    // function shuffle (array) {
+    //     let m = array.length, t, i;
+    //     while (m) {
+    //         i = Math.floor(Math.random() * m--);
+    //         t = array[m];
+    //         array[m] = array[i];
+    //         array[i] = t;
+    //     }
+    //     return array;
+    // }
 
         return (
-            <section className='board'> 
-                {shuffle(this.state.getCards)}
-            </section>
+            <div></div>
+            // <section className='board'> 
+            //     {shuffle(this.state.getCards)}
+            // </section>
         );
+    }
+}
+
+class Start extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+        }
+    }
+    startClick = (e) => {
+        this.setState({
+         
+        })
+    };
+    render() {
+        this.state.getCards = cards.map((e,i) =>{
+            return  <div onClick={this.handleClick} key={i}>  <img className={this.state.class}  src={e.src} alt={e.name} id={e.id}/>   </div>
+        })
+    
+        function shuffle (array) {
+            let m = array.length, t, i;
+            while (m) {
+                i = Math.floor(Math.random() * m--);
+                t = array[m];
+                array[m] = array[i];
+                array[i] = t;
+            }
+            return array;
+        }
+        return (
+            <section>
+                <button onClick={this.startClick}>Start button</button>
+                <div className='board'> 
+                    {shuffle(this.state.getCards)}
+                </div>
+            </section>
+          
+	    )
     }
 }
 
 class App extends React.Component {
     render(){
         return (
-        <div>
-            <GameBoard cards={cards}/>
-        </div>
+        <section>
+            <div>
+            <Start cards={cards}/>
+            </div>
+
+            <GameCard cards={cards}/>
+        </section>
         )
     }
 }
-
 document.addEventListener('DOMContentLoaded', function(){
     ReactDOM.render(
         <App />,
