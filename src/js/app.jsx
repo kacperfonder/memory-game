@@ -51,26 +51,11 @@ class GameCard extends React.Component {
     };
 
     render() {
-    // this.state.getCards = cards.map((e,i) =>{
-    //     return  <div  onClick={this.handleClick} key={i}>  <img className={this.state.class}  src={e.src} alt={e.name} id={e.id}/>   </div>
-    // })
-
-    // function shuffle (array) {
-    //     let m = array.length, t, i;
-    //     while (m) {
-    //         i = Math.floor(Math.random() * m--);
-    //         t = array[m];
-    //         array[m] = array[i];
-    //         array[i] = t;
-    //     }
-    //     return array;
-    // }
+  
 
         return (
             <div></div>
-            // <section className='board'> 
-            //     {shuffle(this.state.getCards)}
-            // </section>
+          
         );
     }
 }
@@ -91,15 +76,13 @@ class Start extends React.Component {
             return  <div onClick={this.handleClick} key={i}>  <img className={this.state.class}  src={e.src} alt={e.name} id={e.id}/>   </div>
         })
     
-        function shuffle (array) {
-            let m = array.length, t, i;
-            while (m) {
-                i = Math.floor(Math.random() * m--);
-                t = array[m];
-                array[m] = array[i];
-                array[i] = t;
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
             }
             return array;
+
         }
         return (
             <section>
@@ -118,7 +101,7 @@ class App extends React.Component {
         return (
         <section>
             <div>
-            <Start cards={cards}/>
+            <Start card={GameCard}/>
             </div>
 
             <GameCard cards={cards}/>
