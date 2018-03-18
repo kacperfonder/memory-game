@@ -25,7 +25,7 @@ class GameCard extends React.Component {
           return array;
         }
         shuffleArray(this.state.getCards = cards.map((e,i) =>{
-            return  <div onClick={this.handleClick} key={i}>  <img className={this.state.class}  src={e.src} alt={e.name} id={e.id}/>   </div>
+            return  <div onClick={e => this.handleClick(e)} key={i}>  <img className={this.state.class}  src={e.src} alt={e.name} id={e.id}/>   </div>
         }));
       }
 
@@ -86,7 +86,7 @@ class App extends React.Component {
     render(){
         return (
         <section>
-            <GameCard cards={cards}/>
+            <GameCard />
         </section>
         )
     }
