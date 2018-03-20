@@ -33,7 +33,7 @@ class Game extends React.Component {
                 this.matched();
 
             } else {
-                console.log("rozne madafucka");
+                console.log("rozne");
                 this.unmatched();
             }
         }
