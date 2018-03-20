@@ -1,99 +1,91 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import cards from "./cards.js";
+import image from "./image.js";
 require('../../dist/css/main.css');
 
 
-class GameCard extends React.Component {
+class Game extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            getCards: [],
-            checkedCards:[],
-            cardOneFlipped: false,
-            cardTwoFlipped: false,
-            movesDone: 0,
+            boardCards: [],
+            selectedCards:[],
+            correctCards:[],
             class: ""      
         }
     }
-    componentWillMount() {
-        function shuffleArray(array) {
-          for (let i = array.length - 1; i > 0; i--) {
-              let j = Math.floor(Math.random() * (i + 1));
-              [array[i], array[j]] = [array[j], array[i]];
-          }
-          return array;
-        }
-        shuffleArray(this.state.getCards = cards.map((e,i) =>{
-            return  <div onClick={e => this.handleClick(e)} key={i}>  <img className={this.state.class}  src={e.src} alt={e.name} id={e.id}/>   </div>
-        }));
-      }
-
     matched = () => {
     
-        this.state.checkedCards = []; 
+        this.state.selectedCards = []; 
     }
     unmatched = () => {
      
-        this.state.checkedCards = [];
+        this.state.selectedCards = [];
     }
-   
-    handleClick = (e) => {
-        this.setState({
-            class: this.state.class == 'rotate' ? '' : 'rotate'
+    handleClick = (cardClick) => {
+
+        this.state.selectedCards.push(cardClick.currentTarget);
+
+        if(this.state.selectedCards.length == 2){  
             
-        })
-       
-        this.state.checkedCards.push(e.currentTarget);
-        
-        console.log(this.state.checkedCards);
-        
-        if(this.state.checkedCards.length == 2){  
-            
-            if( this.state.checkedCards[0].firstElementChild.alt === this.state.checkedCards[1].firstElementChild.alt){
+            if( this.state.selectedCards[0].firstElementChild.alt === this.state.selectedCards[1].firstElementChild.alt){
                 console.log("takie same");
                 this.matched();
 
             } else {
                 console.log("rozne madafucka");
                 this.unmatched();
-               
             }
         }
+    }   
+  
+    shuffleClick = (e) => {
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+            console.log(shuffleArray);
+        }
+        shuffleArray(this.state.boardCards)
     };
-    startClick = (e) => {
-        this.setState({
-         
-        })
-    };
-    render() {
-        // this.state.getCards = cards.map((e,i) =>{
-        //     return  <div onClick={this.handleClick} key={i}>  <img className={this.state.class}  src={e.src} alt={e.name} id={e.id}/>   </div>
-        // })
-
-        return (
-            <section>
-                <button onClick={this.startClick}>Start button</button>
-                <div className='board'> 
-                    {this.state.getCards}
-                </div>
-            </section>
-        );
+   
+    
+    
+render() {
+    this.state.boardCards = image.map((e,i) =>{
+        return  <div onClick={this.handleClick} key={i}>  <img className={this.state.class}  src={e.src} alt={e.name} id={e.id}/>   </div>
+    })
+    return (
+       
+        <div>
+            <h1>Memory Game</h1>
+            <button onClick={this.shuffleClick} >Reset game</button>
+            <div className="board">
+            shuffleArray(this.state.boardCards)
+                {this.state.boardCards}
+            </div>
+        </div>
+    );
+    
     }
 }
-// .sort(() => 0.5 - Math.random())
+
+
 class App extends React.Component {
     render(){
         return (
-        <section>
-            <GameCard />
-        </section>
+        <div>
+            <Game/>
+        </div>
         )
     }
 }
+
 document.addEventListener('DOMContentLoaded', function(){
     ReactDOM.render(
         <App />,
         document.getElementById('app')
     );
-});
+})

@@ -33,6 +33,10 @@ img{
     display: block;
     transition: 1s;
 }
-
-
+.visible {
+    display: block;
+}
+.hidden {
+    display: none;
+}
 
